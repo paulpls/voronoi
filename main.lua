@@ -62,8 +62,8 @@ love.keypressed = function (key)
         --  Quit
         love.event.quit()
     elseif key == "r" then
-        --  Refresh and randomize
-        grid:refresh()
+        --  Hard refresh, then randomize
+        grid:refresh(true)
         grid:randomize()
     elseif key == "space" then
         --  Toggle animaton
@@ -82,7 +82,7 @@ end
 
 
 
-love.quit = function (msg)
+love.quit = function ()
     --
     --  Bye, Felicia
     --

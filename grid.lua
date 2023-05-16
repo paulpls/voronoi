@@ -6,12 +6,16 @@ local Grid = Class:new()
 
 
 --
---  Utils for square, square root, and HSVA color modelling
+--  Utils for square and square root
 --
 local sq =   function (n) return math.pow(n, 2) end
 local sqrt = function (n) return math.sqrt(n) end
+
+
+
 local hsvaColor = function (h, s, v, a)
     --
+    --  HSVA color modelling
     --  Based on the example at https://love2d.org/wiki/HSV_color
     --
     h = h / 255
@@ -19,7 +23,7 @@ local hsvaColor = function (h, s, v, a)
     h = h * 6
     local c = v * s
     local x = c * (1 - math.abs((h % 2) - 1))
-    local m,r,g,b = v - c, 0, 0, 0
+    local m = v - c
     local colors = {
         {c, x, 0},
         {x, c, 0},
@@ -28,7 +32,8 @@ local hsvaColor = function (h, s, v, a)
         {x, 0, x},
         {c, 0, x}
     }
-    r,g,b = unpack(colors[math.ceil(h)])
+    h = 1 + math.floor(h) % 6
+    local r,g,b = unpack(colors[h])
     return {
         r + m,
         g + m,
@@ -69,22 +74,20 @@ Grid.count = function (self)
     --
     local n = 0
     for y in pairs(self.points) do
-        for x in pairs(self.points[y]) do
-            n = n + 1
-        end
+        for x in pairs(self.points[y]) do n = n + 1 end
     end
     return n
 end
 
 
 
-Grid.refresh = function (self)
+Grid.refresh = function (self, hard)
     --
     --  Refresh the grid
     --
-    self.points = {}
+    if hard then self.points = {} end
     self.color = {}
-    self.animate = true
+    self.animate = false
     self.stopped = false
     self.elapsed = 0
     self.r = 1
@@ -100,6 +103,8 @@ Grid.plot = function (self, x, y)
     local s = 1
     local v = math.random(50, 100) / 100
     local a = self.alpha
+    --  Soft refresh
+    self:refresh()
     --  Add point and color information
     if not self.points[y] then self.points[y] = {} end
     self.points[y][x] = hsvaColor(h, s, v, a)
@@ -125,12 +130,13 @@ Grid.validate = function (self, x, y)
     --  Point (x,y) is valid if:
     --  *   (x,y) coordinates are within window boundaries
     --  *   Color information is not detected
-    --
+    --      
     local X = (0 < x) and (x <= self.w)
     local Y = (0 < y) and (y <= self.h)
     if X and Y then 
         if self.color[y] then
-            return not self.color[y][x]
+           if self.color[y][x] then
+           end
         else
             return true
         end
