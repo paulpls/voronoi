@@ -4,7 +4,7 @@
 --  Generates voronoi polygons from a series of random points.
 --
 --  Author:  paulpls
---  License: GLP 3.0
+--  License: GPL 3.0
 --
 
 
