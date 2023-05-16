@@ -1,12 +1,14 @@
-# Voronoi Generator
 ![screenshot](screenshot.png)
-  
-  
+
+# Voronoi Generator
+Author: [paulpls](https://github.com/paulpls)  
+License: [GPL 3.0](LICENSE.md)  
+
+
+
 ## About
 This program randomly assigns points to a grid, then generates [Voronoi polygons](https://en.wikipedia.org/wiki/Voronoi_diagram) using a rudimentary space-filling algorithm. There's not too much optimization done here, so it can be slow when using larger window sizes. For now, I've found the results to be satisfying enough to call it done.
   
-Author: [paulpls](https://github.com/paulpls)  
-License: [GPL 3.0](LICENSE.md)  
 
 
 
