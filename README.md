@@ -5,8 +5,8 @@
 ## About
 This program randomly assigns points to a grid, then generates Voronoi polygons using a space-filling algorithm. There's not too much optimization done here, so it can be slow when using larger window sizes. For now, I've found the results to be satisfying enough to call it done.
   
-Author: [paulpls](https://github.com/paulpls)
-License: [GPL 3.0](LICENSE.md)
+Author: [paulpls](https://github.com/paulpls)  
+License: [GPL 3.0](LICENSE.md)  
 
 
 
@@ -19,7 +19,7 @@ License: [GPL 3.0](LICENSE.md)
 
 ## Controls
 | Key                | Description                               |
-|-------------------:|:-----------------------------------------:|
+|:------------------:|:------------------------------------------|
 | mouse button       | Add a point to the grid                   |
 | spacebar           | Toggle animation on/off                   |
 | r                  | Refresh the grid                          |
