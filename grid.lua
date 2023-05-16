@@ -143,7 +143,7 @@ end
 
 Grid.grow = function (self, h, k, r)
     --
-    --  Cache the set of points witin a circle centered at point (h,k):
+    --  Cache the set of points within a circle centered at point (h,k):
     --                     ____________________
     --                    /   2             2
     --      x == h + ‾\  /   r  -  ( y - k )
