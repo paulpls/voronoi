@@ -73,11 +73,11 @@ end
 
 
 
-love.mousepressed = function (x, y, button, isTouch, presses)
+love.mousepressed = function (x, y)
     --
     --  Add points where clicked
     --
-    if grid:validate(x,y) then grid:plot(x,y) end
+    if grid:validate(x, y) then grid:plot(x, y) end
 end
 
 

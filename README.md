@@ -18,9 +18,9 @@ License: [GPL 3.0](LICENSE.md)
 
 
 ## Controls
-| Key                | Description                               |
+| Input              | Description                               |
 |:------------------:|:------------------------------------------|
-| mouse button       | Add a point to the grid                   |
+| mouse buttons      | Add a point to the grid                   |
 | spacebar           | Toggle animation on/off                   |
 | r                  | Refresh the grid                          |
 | q, ESC             | Quit                                      |

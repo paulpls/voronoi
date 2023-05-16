@@ -15,7 +15,7 @@ local hsvaColor = function (h, s, v, a)
     --  Based on the example at https://love2d.org/wiki/HSV_color
     --
     h = h / 255
-    if s <= 0 then return {v,v,v} end
+    if s <= 0 then return {v, v, v, a} end
     h = h * 6
     local c = v * s
     local x = c * (1 - math.abs((h%2) - 1))
@@ -67,8 +67,8 @@ Grid.count = function (self)
     --  Returns the total number of points in the grid
     --
     local n = 0
-    for y,_ in pairs(self.points) do
-        for x,_ in pairs(self.points[y]) do
+    for y in pairs(self.points) do
+        for x in pairs(self.points[y]) do
             n = n + 1
         end
     end
@@ -110,9 +110,7 @@ Grid.randomize = function (self)
     --
     --  Plot a number of random points in the window
     --
-    local total = self.totalPoints
-    --  Plot random points and assign random colors
-    for _=1, total do
+    for _=1, self.totalPoints do
         local x = math.floor(math.random() * self.w)
         local y = math.floor(math.random() * self.h)
         self:plot(x, y)
@@ -121,9 +119,9 @@ end
 
 
 
-Grid.validate = function (self, x, y, h, k)
+Grid.validate = function (self, x, y)
     --
-    --  True if:
+    --  Point (x,y) is valid if:
     --  *   (x,y) coordinates are within window boundaries
     --  *   Color information is not detected
     --
@@ -186,8 +184,8 @@ Grid.update = function (self, dt)
             --  Subtract delay from elapsed time
             self.elapsed = self.elapsed - self.delay
             --  Iterate points and grow the plot
-            for y,_ in pairs(self.points) do
-                for x,_ in pairs(self.points[y]) do
+            for y in pairs(self.points) do
+                for x in pairs(self.points[y]) do
                     self:grow(x, y, self.r)
                 end
             end
@@ -208,17 +206,16 @@ Grid.draw = function (self)
     --
     local points = self.points
     local color = self.color
-    local total = self.totalPoints
     --  Draw color data
-    for y,_ in pairs(color) do
-        for x,_ in pairs(color[y]) do
+    for y in pairs(self.color) do
+        for x in pairs(self.color[y]) do
             love.graphics.setColor(self.color[y][x])
             love.graphics.rectangle("fill", x, y, 1, 1)
         end
     end
     --  Draw points
-    for y,_ in pairs(points) do
-        for x,_ in pairs(points[y]) do
+    for y in pairs(self.points) do
+        for x in pairs(self.points[y]) do
             love.graphics.setColor({1,1,1})
             love.graphics.rectangle("fill", x-1, y-1, 3, 3)
             love.graphics.setColor({0,0,0})
