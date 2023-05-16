@@ -8,7 +8,6 @@ License: [GPL 3.0](LICENSE.md)
 
 ## About
 This program randomly assigns points to a grid, then generates [Voronoi polygons](https://en.wikipedia.org/wiki/Voronoi_diagram) using a rudimentary space-filling algorithm. There's not too much optimization done here, so it can be slow when using larger window sizes. For now, I've found the results to be satisfying enough to call it done.
-  
 
 
 
@@ -20,16 +19,21 @@ This program randomly assigns points to a grid, then generates [Voronoi polygons
 
 
 ## Controls
-| Input              | Description                               |
-|:------------------:|:------------------------------------------|
-| mouse buttons      | Add a point to the grid                   |
-| spacebar           | Toggle animation on/off                   |
-| r                  | Refresh the grid                          |
-| q, ESC             | Quit                                      |
+| Input         | Description             |
+|:-------------:|:------------------------|
+| mouse buttons | Add a point             |
+| spacebar      | Start/stop animation    |
+| r             | Refresh                 |
+| q, ESC        | Quit                    |
 
 
 
-## License
+## Future Plans
+* Optimize using the [jump flooding algorithm](http://en.wikipedia.org/wiki/Jump_flooding_algorithm)
+
+
+
+## License Information
   
     Copyright (C) 2023 Paul Clayberg
     
