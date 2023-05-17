@@ -23,7 +23,7 @@ This program randomly assigns points to a grid, then generates [Voronoi polygons
 |:-------------:|:------------------------|
 | mouse buttons | Add a point             |
 | spacebar      | Start/stop animation    |
-| r             | Refresh                 |
+| r             | Restart or reset        |
 | q, ESC        | Quit                    |
 
 

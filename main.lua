@@ -62,9 +62,14 @@ love.keypressed = function (key)
         --  Quit
         love.event.quit()
     elseif key == "r" then
-        --  Hard refresh, then randomize
-        grid:refresh(true)
-        grid:randomize()
+        --  Soft refresh if animation has already begun
+        if grid.elapsed > 0 then
+            grid:refresh()
+        else
+            --  Hard refresh, then randomize
+            grid:refresh(true)
+            grid:randomize()
+        end
     elseif key == "space" then
         --  Toggle animaton
         grid.animate = not grid.animate
