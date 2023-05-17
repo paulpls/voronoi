@@ -72,6 +72,7 @@ Grid.count = function (self)
     --
     --  Returns the total number of points in the grid
     --
+    if self.points == {} then return 0 end
     local n = 0
     for y in pairs(self.points) do
         for x in pairs(self.points[y]) do n = n + 1 end
@@ -99,7 +100,7 @@ Grid.plot = function (self, x, y)
     --
     --  Plot a point and assign a color to it
     --
-    local h = math.floor((self:count() + 1) / self.totalPoints * 255)
+    local h = math.floor((self:count()) / self.totalPoints * 255)
     local s = 1
     local v = math.random(50, 100) / 100
     local a = self.alpha
