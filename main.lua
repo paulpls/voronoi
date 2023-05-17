@@ -70,6 +70,9 @@ love.keypressed = function (key)
             grid:refresh(true)
             grid:randomize()
         end
+    elseif key == "c" then
+        --  Clear all points and reset
+        grid:refresh(true)
     elseif key == "space" then
         --  Toggle animaton
         grid.animate = not grid.animate
