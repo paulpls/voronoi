@@ -130,13 +130,12 @@ Grid.validate = function (self, x, y)
     --  Point (x,y) is valid if:
     --  *   (x,y) coordinates are within window boundaries
     --  *   Color information is not detected
-    --      
+    --
     local X = (0 < x) and (x <= self.w)
     local Y = (0 < y) and (y <= self.h)
     if X and Y then 
         if self.color[y] then
-           if self.color[y][x] then
-           end
+            return not self.color[y][x]
         else
             return true
         end
