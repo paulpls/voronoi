@@ -18,9 +18,8 @@ local hsvaColor = function (h, s, v, a)
     --  HSVA color modelling
     --  Based on the example at https://love2d.org/wiki/HSV_color
     --
-    h = h / 255
+    h = h / 60  --  == h / 360 * 6
     if s <= 0 then return {v, v, v, a} end
-    h = h * 6
     local c = v * s
     local x = c * (1 - math.abs((h % 2) - 1))
     local m = v - c
