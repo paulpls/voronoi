@@ -28,7 +28,7 @@ local hsvaColor = function (h, s, v, a)
         {x, c, 0},
         {0, c, x},
         {0, x, c},
-        {x, 0, x},
+        {x, 0, c},
         {c, 0, x}
     }
     h = 1 + math.floor(h) % 6
